@@ -49,8 +49,8 @@ DOS programu FastTracker. Obs³uguje formaty XM i MOD.
 rm -f missing
 gettextize --copy --force
 aclocal
-autoconf
-automake -a -c -f
+%{__autoconf}
+%{__automake}
 %configure \
 	%{?_without_esound:--disable-esd} \
 	%{?_without_gnome:--disable-gnome}
