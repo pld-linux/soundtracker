@@ -12,8 +12,6 @@ Version:	%{ver}.%{subver}
 Release:	3
 License:	GPL
 Group:		X11/Applications/Multimedia
-Group(de):	X11/Applikationen/Multimedia
-Group(pl):	X11/Aplikacje/Multimedia
 Source0:	ftp://ftp.soundtracker.org/pub/soundtracker/v%{ver}/%{name}-%{version}.tar.gz
 Patch0:		%{name}-no_chmod.patch
 Patch1:		%{name}-acfix.patch
