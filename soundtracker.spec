@@ -17,6 +17,9 @@ Patch0:		%{name}-no_chmod.patch
 Patch1:		%{name}-acfix.patch
 Patch2:		%{name}-am_fix.patch
 URL:		http://www.soundtracker.org/
+%ifarch %{ix86}
+BuildRequires:	/usr/bin/gasp
+%endif
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	audiofile-devel >= 0.1.5
