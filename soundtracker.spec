@@ -50,7 +50,7 @@ rm -f missing
 gettextize --copy --force
 aclocal
 autoconf
-automake -a -c
+automake -a -c -f
 %configure \
 	%{?_without_esound:--disable-esd} \
 	%{?_without_gnome:--disable-gnome}
