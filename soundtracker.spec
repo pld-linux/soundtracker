@@ -17,13 +17,13 @@ Patch0:		%{name}-no_chmod.patch
 Patch1:		%{name}-acfix.patch
 Patch2:		%{name}-am_fix.patch
 URL:		http://www.soundtracker.org/
-BuildRequires:	gtk+-devel >= 1.2.2
+BuildRequires:	autoconf
+BuildRequires:	automake
 BuildRequires:	audiofile-devel >= 0.1.5
 %{?!_without_esound:BuildRequires:	esound-devel >= 0.2.8}
-%{?!_without_gnome:BuildRequires:	gnome-libs-devel}
 BuildRequires:	gettext-devel
-BuildRequires:	automake
-BuildRequires:	autoconf
+%{?!_without_gnome:BuildRequires:	gnome-libs-devel}
+BuildRequires:	gtk+-devel >= 1.2.2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
@@ -55,7 +55,7 @@ aclocal
 %configure \
 	%{?_without_esound:--disable-esd} \
 	%{?_without_gnome:--disable-gnome} \
-	--disable-asm
+	%{!?_with_asm:--disable-asm}
 
 %{__make}
 
@@ -65,7 +65,7 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT \
 	utildir=%{_applnkdir}/Multimedia
 
-install soundtracker.desktop $RPM_BUILD_ROOT%{_applnkdir}/Multimedia}
+install soundtracker.desktop $RPM_BUILD_ROOT%{_applnkdir}/Multimedia
 
 %find_lang %{name} %{!?_without_gnome:--with-gnome}
 
@@ -76,4 +76,5 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS FAQ NEWS TODO README ChangeLog doc/x[im].txt
 %attr(755,root,root) %{_bindir}/*
+%{_datadir}/soundtracker
 %{_applnkdir}/*/*
