@@ -26,8 +26,6 @@ BuildRequires:	gettext-devel
 BuildRequires:	gtk+-devel >= 1.2.2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		_prefix		/usr/X11R6
-%define		_mandir		%{_prefix}/man
 
 %description
 SoundTracker is a pattern-oriented music editor (similar to the DOS
