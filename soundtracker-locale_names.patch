@@ -1,0 +1,22 @@
+--- soundtracker-0.6.7/configure.in~	Mon Jul 26 11:38:21 2004
++++ soundtracker-0.6.7/configure.in	Mon Jul 26 11:38:21 2004
+@@ -52,7 +52,7 @@
+ dnl -----------------------------------------------------------------------
+ 
+ dnl Also add new catalogs to soundtracker.spec (%build)!
+-ALL_LINGUAS="da de es fr gl hr it ja no pl ru sk sl sv"
++ALL_LINGUAS="da de es fr gl hr it ja nb pl ru sk sl sv"
+ AM_GNU_GETTEXT
+ 
+ dnl -----------------------------------------------------------------------
+--- soundtracker-0.6.7/configure~	Mon Jul 26 11:38:43 2004
++++ soundtracker-0.6.7/configure	Mon Jul 26 11:38:43 2004
+@@ -3570,7 +3570,7 @@
+ 
+ 
+ 
+-ALL_LINGUAS="da de es fr gl hr it ja no pl ru sk sl sv"
++ALL_LINGUAS="da de es fr gl hr it ja nb pl ru sk sl sv"
+ # Make sure we can run config.sub.
+ $ac_config_sub sun4 >/dev/null 2>&1 ||
+   { { echo "$as_me:$LINENO: error: cannot run $ac_config_sub" >&5
