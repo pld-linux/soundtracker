@@ -11,7 +11,7 @@ Name:		soundtracker
 Version:	%{ver}.%{subver}
 Release:	2
 License:	GPL
-Group:		X11/Applications/Multimedia
+Group:		X11/Applications/Sound
 Source0:	ftp://ftp.soundtracker.org/pub/soundtracker/v%{ver}/%{name}-%{version}.tar.gz
 Patch0:		%{name}-no_chmod.patch
 Patch1:		%{name}-acfix.patch
