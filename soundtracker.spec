@@ -9,7 +9,7 @@ Name:		soundtracker
 %define	ver	0.6
 %define	subver	2
 Version:	%{ver}.%{subver}
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Applications/Multimedia
 Group(de):	X11/Applikationen/Multimedia
@@ -23,14 +23,23 @@ BuildRequires:	audiofile-devel >= 0.1.5
 %{?!bcond_off_esound:BuildRequires:	esound-devel >= 0.2.8}
 %{?!bcond_off_gnome:BuildRequires:	gnome-libs-devel}
 BuildRequires:	gettext-devel
+BuildRequires:	automake
+BuildRequires:	autoconf
 ExclusiveArch:	%{ix86}
 
 %define		_prefix		/usr/X11R6
 %define		_mandir		%{_prefix}/man
 
 %description
+SoundTracker is a pattern-oriented music editor (similar to the DOS
+program 'FastTracker'). Samples are lined up on tracks and patterns
+which are then arranged to a song. Supported module formats are XM and
+MOD; the player code is the one from OpenCP. A basic sample recorder
+and editor is also included.
 
 %description -l pl
+SoundTracker jest edytorem plików muzycznych podobnym do znanego
+spod DOS programu FastTracker. Obs³uguje formaty XM i MOD.
 
 %prep
 %setup -q
@@ -38,6 +47,9 @@ ExclusiveArch:	%{ix86}
 
 %build
 gettextize --copy --force
+aclocal
+autoconf
+automake -a -c
 %configure \
 	%{?bcond_off_esound:--disable-esd} \
 	%{?bcond_off_gnome:--disable-gnome}
