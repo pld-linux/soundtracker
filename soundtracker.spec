@@ -23,7 +23,6 @@ BuildRequires:	audiofile-devel >= 0.1.5
 BuildRequires:	gettext-devel
 BuildRequires:	automake
 BuildRequires:	autoconf
-ExclusiveArch:	%{ix86}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
