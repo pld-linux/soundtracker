@@ -1,7 +1,7 @@
 #
 # Conditional build:	
-# bcond_off_gnome - without gnome support
-# bcond_off_esound - without esd support
+# _without_gnome - without gnome support
+# _without_esound - without esd support
 #
 Summary:	Soundtracker - Sekwencer MIDI
 Summary(pl):	Soundtracker - MIDI sequencer
@@ -19,8 +19,8 @@ Patch0:		%{name}-no_chmod.patch
 URL:		http://www.soundtracker.org/
 BuildRequires:	gtk+-devel >= 1.2.2
 BuildRequires:	audiofile-devel >= 0.1.5
-%{?!bcond_off_esound:BuildRequires:	esound-devel >= 0.2.8}
-%{?!bcond_off_gnome:BuildRequires:	gnome-libs-devel}
+%{?!_without_esound:BuildRequires:	esound-devel >= 0.2.8}
+%{?!_without_gnome:BuildRequires:	gnome-libs-devel}
 BuildRequires:	gettext-devel
 BuildRequires:	automake
 BuildRequires:	autoconf
@@ -51,8 +51,8 @@ aclocal
 autoconf
 automake -a -c
 %configure \
-	%{?bcond_off_esound:--disable-esd} \
-	%{?bcond_off_gnome:--disable-gnome}
+	%{?_without_esound:--disable-esd} \
+	%{?_without_gnome:--disable-gnome}
 
 %{__make}
 
@@ -62,11 +62,11 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT \
 	utildir=%{_applnkdir}/Multimedia
 
-%{?bcond_off_gnome:install soundtracker.desktop $RPM_BUILD_ROOT%{_applnkdir}/Multimedia}
+%{?_without_gnome:install soundtracker.desktop $RPM_BUILD_ROOT%{_applnkdir}/Multimedia}
 
 gzip -9nf AUTHORS FAQ NEWS TODO README ChangeLog doc/x[im].txt
 
-%find_lang %{name} %{!?bcond_off_gnome:--with-gnome}
+%find_lang %{name} %{!?_without_gnome:--with-gnome}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
