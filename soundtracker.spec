@@ -12,13 +12,14 @@ Summary:	Soundtracker - music editor for xm/mod formats
 Summary(pl):	Soundtracker - program do komponowania muzyki w formatach xm/mod
 Name:		soundtracker
 Version:	0.6.7
-Release:	3
+Release:	4
 License:	GPL
 Group:		X11/Applications/Sound
 Source0:	http://www.soundtracker.org/dl/v0.6/%{name}-%{version}.tar.gz
 # Source0-md5:	9a5685e0a79fb10066d29baed652d324
 Patch0:		%{name}-no_chmod.patch
 Patch1:		%{name}-desktop.patch
+Patch2:		%{name}-locale_names.patch
 URL:		http://www.soundtracker.org/
 %{?with_alsa:BuildRequires:	alsa-lib-devel >= 0.9.0}
 BuildRequires:	autoconf
@@ -50,6 +51,9 @@ i program do nagrywania sampli.
 %setup -q
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
+
+mv -f po/{no,nb}.po
 
 %build
 %{__gettextize}
