@@ -1,0 +1,14 @@
+--- configure.in~	Sun Aug 11 22:42:58 2002
++++ configure.in	Sun Aug 11 22:48:38 2002
+@@ -239,6 +239,11 @@
+   AC_DEFINE_UNQUOTED(PREFIX, "${prefix}")
+ fi
+ 
++AM_CONDITIONAL(GASP_IS_THERE, [false])
++AM_CONDITIONAL(DRIVER_ALSA, [false])
++AM_CONDITIONAL(DRIVER_ALSA_050, [false])
++AM_CONDITIONAL(DRIVER_ESD, [false])
++
+ AC_OUTPUT([
+ Makefile
+ app/Makefile
