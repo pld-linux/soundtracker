@@ -9,7 +9,7 @@ Name:		soundtracker
 %define	ver	0.6
 %define	subver	6
 Version:	%{ver}.%{subver}
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Applications/Multimedia
 Source0:	ftp://ftp.soundtracker.org/pub/soundtracker/v%{ver}/%{name}-%{version}.tar.gz
@@ -38,13 +38,16 @@ and editor is also included.
 
 %description -l pl
 SoundTracker jest edytorem plików muzycznych podobnym do znanego spod
-DOS programu FastTracker. Obs³uguje formaty XM i MOD.
+DOS programu FastTracker. Sample s± rozmieszczane na ¶cie¿kach i
+szablonach, które s± uk³adane w utwory. Edytor obs³uguje formaty XM i
+MOD. Kod odtwarzacza pochodzi z OpenCP. Za³±czony jest prosty edytor
+i program do nagrywania sampli.
 
 %prep
 %setup -q
 %patch0 -p1
 %patch1 -p1
-%patch2
+%patch2 -p1
 
 %build
 rm -f missing
@@ -55,7 +58,9 @@ aclocal
 %configure \
 	%{?_without_esound:--disable-esd} \
 	%{?_without_gnome:--disable-gnome} \
-	%{!?_with_asm:--disable-asm}
+%ifnarch %{ix86}
+	--disable-asm
+%endif
 
 %{__make}
 
