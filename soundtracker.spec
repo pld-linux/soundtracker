@@ -47,7 +47,7 @@ DOS programu FastTracker. Obs³uguje formaty XM i MOD.
 
 %build
 rm -f missing
-gettextize --copy --force
+%{__gettextize}
 aclocal
 %{__autoconf}
 %{__automake}
