@@ -1,7 +1,7 @@
 #
 # Conditional build:
-# _without_gnome - without gnome support
-# _without_esound - without esd support
+# _without_gnome	- without gnome support
+# _without_esd		- without esound support
 #
 Summary:	Soundtracker - Music editor in format xm/mod
 Summary(pl):	Soundtracker - Program do komponowania muzyki w formatach xm/mod
@@ -24,7 +24,7 @@ BuildRequires:	/usr/bin/gasp
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	audiofile-devel >= 0.1.5
-%{?!_without_esound:BuildRequires:	esound-devel >= 0.2.8}
+%{?!_without_esd:BuildRequires:	esound-devel >= 0.2.8}
 BuildRequires:	gettext-devel
 %{?!_without_gnome:BuildRequires:	gnome-libs-devel}
 BuildRequires:	gtk+-devel >= 1.2.2
@@ -58,7 +58,7 @@ rm -f missing
 %{__autoconf}
 %{__automake}
 %configure \
-	%{?_without_esound:--disable-esd} \
+	%{?_without_esd:--disable-esd} \
 	%{?_without_gnome:--disable-gnome} \
 %ifnarch %{ix86}
 	--disable-asm
