@@ -9,13 +9,14 @@ Name:		soundtracker
 %define	ver	0.6
 %define	subver	2
 Version:	%{ver}.%{subver}
-Release:	2
+Release:	3
 License:	GPL
 Group:		X11/Applications/Multimedia
 Group(de):	X11/Applikationen/Multimedia
 Group(pl):	X11/Aplikacje/Multimedia
 Source0:	ftp://ftp.soundtracker.org/pub/soundtracker/v%{ver}/%{name}-%{version}.tar.gz
 Patch0:		%{name}-no_chmod.patch
+Patch1:		%{name}-acfix.patch
 URL:		http://www.soundtracker.org/
 BuildRequires:	gtk+-devel >= 1.2.2
 BuildRequires:	audiofile-devel >= 0.1.5
@@ -43,9 +44,11 @@ DOS programu FastTracker. Obs³uguje formaty XM i MOD.
 
 %prep
 %setup -q
-%patch -p1
+%patch0 -p1
+%patch1 -p1
 
 %build
+rm -f missing
 gettextize --copy --force
 aclocal
 autoconf

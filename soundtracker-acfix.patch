@@ -1,0 +1,11 @@
+--- soundtracker-0.6.2.orig/configure.in	Wed Jan  3 14:59:03 2001
++++ soundtracker-0.6.2/configure.in	Wed Oct 17 23:33:59 2001
+@@ -37,7 +37,7 @@
+ CFLAGS="$CFLAGS -Wall"
+ 
+ AC_PROG_RANLIB
+-
++AM_PROG_AS
+ dnl -----------------------------------------------------------------------
+ dnl Test for poll()
+ dnl -----------------------------------------------------------------------
