@@ -1,5 +1,5 @@
 #
-# Conditional build:
+# Conditional build:	
 # bcond_off_gnome - without gnome support
 # bcond_off_esound - without esd support
 #
@@ -16,8 +16,7 @@ Group(de):	X11/Applikationen/Multimedia
 Group(pl):	X11/Aplikacje/Multimedia
 Source0:	ftp://ftp.soundtracker.org/pub/soundtracker/v%{ver}/%{name}-%{version}.tar.gz
 Patch0:		%{name}-no_chmod.patch
-URL:		http://www.soundtracker.org
-BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+URL:		http://www.soundtracker.org/
 BuildRequires:	gtk+-devel >= 1.2.2
 BuildRequires:	audiofile-devel >= 0.1.5
 %{?!bcond_off_esound:BuildRequires:	esound-devel >= 0.2.8}
@@ -26,6 +25,7 @@ BuildRequires:	gettext-devel
 BuildRequires:	automake
 BuildRequires:	autoconf
 ExclusiveArch:	%{ix86}
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
 %define		_mandir		%{_prefix}/man
@@ -38,8 +38,8 @@ MOD; the player code is the one from OpenCP. A basic sample recorder
 and editor is also included.
 
 %description -l pl
-SoundTracker jest edytorem plików muzycznych podobnym do znanego
-spod DOS programu FastTracker. Obs³uguje formaty XM i MOD.
+SoundTracker jest edytorem plików muzycznych podobnym do znanego spod
+DOS programu FastTracker. Obs³uguje formaty XM i MOD.
 
 %prep
 %setup -q
@@ -73,6 +73,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_bindir}/*
 %doc *.gz doc/*.gz
+%attr(755,root,root) %{_bindir}/*
 %{_applnkdir}/*/*
