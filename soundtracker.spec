@@ -1,5 +1,5 @@
 #
-# Conditional build:	
+# Conditional build:
 # _without_gnome - without gnome support
 # _without_esound - without esd support
 #
