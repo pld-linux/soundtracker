@@ -1,12 +1,19 @@
 diff -urN soundtracker-0.6.7.orig/soundtracker.desktop soundtracker-0.6.7/soundtracker.desktop
 --- soundtracker-0.6.7.orig/soundtracker.desktop	2002-06-28 14:41:15.000000000 +0200
 +++ soundtracker-0.6.7/soundtracker.desktop	2004-07-04 23:27:22.513319704 +0200
-@@ -6,6 +6,7 @@
- Comment[pl]=Odtwarzacz i edytor modu≥Ûw
+@@ -3,9 +3,12 @@
+ Name[pl]=SoundTracker
+ Name[de]=SoundTracker
+ Comment=Module Player / Editor
+-Comment[pl]=Odtwarzacz i edytor modu≥Ûw
  Comment[de]=Modul-Player / -Editor
++Comment[pl]=Odtwarzacz i edytor modu≈Ç√≥w
  Exec=soundtracker
 -#Icon=soundtracker.png
+-Terminal=0
 +Icon=soundtracker.png
- Terminal=0
++Terminal=false
  Type=Application
 +Categories=GTK;Audio;Sequencer;
++Encoding=UTF-8
++# vi: encoding=utf-8
