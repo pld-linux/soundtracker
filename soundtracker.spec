@@ -65,7 +65,7 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT \
 	utildir=%{_applnkdir}/Multimedia
 
-%{?_without_gnome:install soundtracker.desktop $RPM_BUILD_ROOT%{_applnkdir}/Multimedia}
+install soundtracker.desktop $RPM_BUILD_ROOT%{_applnkdir}/Multimedia}
 
 %find_lang %{name} %{!?_without_gnome:--with-gnome}
 
