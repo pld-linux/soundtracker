@@ -12,12 +12,13 @@ Summary:	Soundtracker - music editor for xm/mod formats
 Summary(pl):	Soundtracker - program do komponowania muzyki w formatach xm/mod
 Name:		soundtracker
 Version:	0.6.7
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Applications/Sound
 Source0:	http://www.soundtracker.org/dl/v0.6/%{name}-%{version}.tar.gz
 # Source0-md5:	9a5685e0a79fb10066d29baed652d324
 Patch0:		%{name}-no_chmod.patch
+Patch1:		%{name}-desktop.patch
 URL:		http://www.soundtracker.org/
 %{?with_alsa:BuildRequires:	alsa-lib-devel >= 0.9.0}
 BuildRequires:	autoconf
@@ -48,6 +49,7 @@ i program do nagrywania sampli.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 %build
 %{__gettextize}
@@ -70,9 +72,9 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
-	utildir=%{_applnkdir}/Multimedia
+	utildir=%{_desktopdir}
 
-install soundtracker.desktop $RPM_BUILD_ROOT%{_applnkdir}/Multimedia
+install soundtracker.desktop $RPM_BUILD_ROOT%{_desktopdir}
 
 %find_lang %{name} %{?with_gnome:--with-gnome}
 
@@ -84,4 +86,4 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS FAQ NEWS TODO README ChangeLog doc/x[im].txt
 %attr(755,root,root) %{_bindir}/*
 %{_datadir}/soundtracker
-%{_applnkdir}/*/*
+%{_desktopdir}/*
