@@ -52,7 +52,7 @@ i program do nagrywania sampli.
 %build
 rm -f missing
 %{__gettextize}
-aclocal
+%{__aclocal}
 %{__autoconf}
 %{__automake}
 %configure \
