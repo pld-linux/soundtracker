@@ -1,10 +1,24 @@
---- soundtracker-0.5.7/app/Makefile.am	Tue Aug 15 16:55:19 2000
-+++ soundtracker-0.5.7.new/app/Makefile.am	Wed Sep  6 19:33:04 2000
-@@ -46,15 +46,6 @@
- soundtracker_LDADD = drivers/libdrivers.a mixers/libmixers.a
+--- soundtracker-0.6.7/app/Makefile.am.orig	2003-05-18 12:20:55.000000000 +0200
++++ soundtracker-0.6.7/app/Makefile.am	2004-01-18 01:58:47.546089168 +0100
+@@ -57,30 +57,6 @@
  
- install-exec-local:
--	chown root.root $(bindir)/soundtracker
+ soundtracker_LDADD = drivers/libdrivers.a mixers/libmixers.a ${ST_S_JACK_LIBS}
+ 
+-install-exec-local:
+-	case `uname` in \
+-	  OpenBSD) \
+-	    chown root.wheel $(bindir)/soundtracker; \
+-	    ;; \
+-	  NetBSD) \
+-	    chown root.wheel $(bindir)/soundtracker; \
+-	    ;; \
+-	  Darwin) \
+-	    chown root:admin $(bindir)/soundtracker; \
+-	    ;; \
+-	  *) \
+-	    chown root.root $(bindir)/soundtracker; \
+-	    ;; \
+-	esac
 -	chmod +s $(bindir)/soundtracker
 -	@echo ""
 -	@echo "***"
@@ -13,6 +27,7 @@
 -	@echo "*** if this is a multi-user machine. See file INSTALL."
 -	@echo "***"
 -	@echo ""
+-
  
  stdir = $(datadir)/soundtracker
  
