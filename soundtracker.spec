@@ -17,6 +17,7 @@ BuildRequires:	audiofile-devel
 # optional
 BuildRequires:	esound-devel
 BuildRequires:	gnome-libs-devel
+ExclusiveArch:	%{ix86}
 
 %define		_prefix		/usr/X11R6
 %define		_mandir		%{_prefix}/man
@@ -41,7 +42,8 @@ CFLAGS="$RPM_OPT_FLAGS"; export CFLAGS
 %install
 rm -rf $RPM_BUILD_ROOT
 %{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT
+	DESTDIR=$RPM_BUILD_ROOT \
+	utildir=%{_applnkdir}/Multimedia \
 
 %find_lang %{name} #--with-gnome
 
