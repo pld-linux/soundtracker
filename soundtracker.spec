@@ -1,35 +1,35 @@
 #
 # Conditional build:
-# _without_gnome	- without gnome support
-# _without_esd		- without esound support
+%bcond_without	alsa	# without ALSA support
+%bcond_without	esd	# without EsounD support
+%bcond_without	jack	# without JACK support
+%bcond_with	gnome	# GNOME 1.x-based GUI instead of plain GTK+1
 #
-Summary:	Soundtracker - Music editor in format xm/mod
-Summary(pl):	Soundtracker - Program do komponowania muzyki w formatach xm/mod
+%if %{without alsa}
+%undefine	with_jack
+%endif
+Summary:	Soundtracker - music editor for xm/mod formats
+Summary(pl):	Soundtracker - program do komponowania muzyki w formatach xm/mod
 Name:		soundtracker
-%define	ver	0.6
-%define	subver	6
-Version:	%{ver}.%{subver}
-Release:	2
+Version:	0.6.7
+Release:	1
 License:	GPL
 Group:		X11/Applications/Sound
-Source0:	ftp://ftp.soundtracker.org/pub/soundtracker/v%{ver}/%{name}-%{version}.tar.gz
-# Source0-md5:	6014b06c999a82a227e4d1ba43ae026c
+Source0:	http://www.soundtracker.org/dl/v0.6/%{name}-%{version}.tar.gz
+# Source0-md5:	9a5685e0a79fb10066d29baed652d324
 Patch0:		%{name}-no_chmod.patch
-Patch1:		%{name}-acfix.patch
-Patch2:		%{name}-am_fix.patch
 URL:		http://www.soundtracker.org/
-%ifarch %{ix86}
-BuildRequires:	/usr/bin/gasp
-%endif
+%{?with_alsa:BuildRequires:	alsa-lib-devel >= 0.9.0}
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	audiofile-devel >= 0.1.5
-%{?!_without_esd:BuildRequires:	esound-devel >= 0.2.8}
+%{?with_esd:BuildRequires:	esound-devel >= 0.2.8}
+BuildRequires:	gdk-pixbuf-devel >= 0.8.0
 BuildRequires:	gettext-devel
-%{?!_without_gnome:BuildRequires:	gnome-libs-devel}
+%{?with_gnome:BuildRequires:	gnome-libs-devel}
 BuildRequires:	gtk+-devel >= 1.2.2
+%{?with_jack:BuildRequires:	jack-audio-connection-kit-devel}
+BuildRequires:	libsndfile-devel >= 1.0.1
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-
 
 %description
 SoundTracker is a pattern-oriented music editor (similar to the DOS
@@ -48,18 +48,17 @@ i program do nagrywania sampli.
 %prep
 %setup -q
 %patch0 -p1
-%patch1 -p1
-%patch2 -p1
 
 %build
-rm -f missing
 %{__gettextize}
 %{__aclocal}
 %{__autoconf}
 %{__automake}
 %configure \
-	%{?_without_esd:--disable-esd} \
-	%{?_without_gnome:--disable-gnome} \
+	%{!?with_alsa:--disable-alsa} \
+	%{!?with_esd:--disable-esd} \
+	%{!?with_jack:--disable-jack} \
+	%{!?with_gnome:--disable-gnome} \
 %ifnarch %{ix86}
 	--disable-asm
 %endif
@@ -68,13 +67,14 @@ rm -f missing
 
 %install
 rm -rf $RPM_BUILD_ROOT
+
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
 	utildir=%{_applnkdir}/Multimedia
 
 install soundtracker.desktop $RPM_BUILD_ROOT%{_applnkdir}/Multimedia
 
-%find_lang %{name} %{!?_without_gnome:--with-gnome}
+%find_lang %{name} %{?with_gnome:--with-gnome}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
