@@ -13,6 +13,7 @@ Release:	2
 License:	GPL
 Group:		X11/Applications/Sound
 Source0:	ftp://ftp.soundtracker.org/pub/soundtracker/v%{ver}/%{name}-%{version}.tar.gz
+# Source0-md5:	6014b06c999a82a227e4d1ba43ae026c
 Patch0:		%{name}-no_chmod.patch
 Patch1:		%{name}-acfix.patch
 Patch2:		%{name}-am_fix.patch
