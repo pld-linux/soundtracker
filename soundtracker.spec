@@ -3,13 +3,13 @@
 # _without_gnome - without gnome support
 # _without_esound - without esd support
 #
-Summary:	Soundtracker - Sekwencer MIDI
-Summary(pl):	Soundtracker - MIDI sequencer
+Summary:	Soundtracker - Music editor in format xm/mod
+Summary(pl):	Soundtracker - Program do komponowania muzyki w formatach xm/mod
 Name:		soundtracker
 %define	ver	0.6
-%define	subver	2
+%define	subver	4
 Version:	%{ver}.%{subver}
-Release:	3
+Release:	1
 License:	GPL
 Group:		X11/Applications/Multimedia
 Source0:	ftp://ftp.soundtracker.org/pub/soundtracker/v%{ver}/%{name}-%{version}.tar.gz
