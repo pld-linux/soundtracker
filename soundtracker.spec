@@ -54,7 +54,8 @@ aclocal
 %{__automake}
 %configure \
 	%{?_without_esound:--disable-esd} \
-	%{?_without_gnome:--disable-gnome}
+	%{?_without_gnome:--disable-gnome} \
+	--disable-asm
 
 %{__make}
 
