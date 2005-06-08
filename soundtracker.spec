@@ -32,6 +32,7 @@ BuildRequires:	gettext-devel
 BuildRequires:	gtk+-devel >= 1.2.2
 %{?with_jack:BuildRequires:	jack-audio-connection-kit-devel}
 BuildRequires:	libsndfile-devel >= 1.0.1
+BuildRequires:	pkgconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
