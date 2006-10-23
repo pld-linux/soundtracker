@@ -1,6 +1,6 @@
---- soundtracker-0.6.7/app/Makefile.am.orig	2003-05-18 12:20:55.000000000 +0200
-+++ soundtracker-0.6.7/app/Makefile.am	2004-01-18 01:58:47.546089168 +0100
-@@ -57,30 +57,6 @@
+--- soundtracker-0.6.8/app/Makefile.am.orig	2006-02-25 13:30:54.000000000 +0100
++++ soundtracker-0.6.8/app/Makefile.am	2006-10-23 22:31:11.417543750 +0200
+@@ -58,31 +58,6 @@
  
  soundtracker_LDADD = drivers/libdrivers.a mixers/libmixers.a ${ST_S_JACK_LIBS}
  
@@ -16,7 +16,7 @@
 -	    chown root:admin $(bindir)/soundtracker; \
 -	    ;; \
 -	  *) \
--	    chown root.root $(bindir)/soundtracker; \
+-	    chown root:root $(bindir)/soundtracker; \
 -	    ;; \
 -	esac
 -	chmod +s $(bindir)/soundtracker
@@ -28,6 +28,7 @@
 -	@echo "***"
 -	@echo ""
 -
- 
+-
  stdir = $(datadir)/soundtracker
  
+ #INCLUDES = -DDATADIR=\"$(stdir)\" \
