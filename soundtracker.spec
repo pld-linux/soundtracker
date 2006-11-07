@@ -99,4 +99,4 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS FAQ NEWS TODO README ChangeLog doc/x[imp].txt
 %attr(755,root,root) %{_bindir}/*
 %{_datadir}/soundtracker
-%{_desktopdir}/*
+%{_desktopdir}/*.desktop
