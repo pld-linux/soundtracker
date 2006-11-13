@@ -8,7 +8,7 @@
 %bcond_with	jack	# JACK support (requires update for current JACK API)
 %bcond_with	gnome	# GNOME 1.x-based GUI instead of plain GTK+1
 #
-%if %{without alsa}
+%if !%{with alsa}
 %undefine	with_jack
 %endif
 Summary:	Soundtracker - music editor for xm/mod formats
