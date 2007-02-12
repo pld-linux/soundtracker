@@ -12,7 +12,7 @@
 %undefine	with_jack
 %endif
 Summary:	Soundtracker - music editor for xm/mod formats
-Summary(pl):	Soundtracker - program do komponowania muzyki w formatach xm/mod
+Summary(pl.UTF-8):   Soundtracker - program do komponowania muzyki w formatach xm/mod
 Name:		soundtracker
 Version:	0.6.8
 Release:	1
@@ -47,11 +47,11 @@ which are then arranged to a song. Supported module formats are XM and
 MOD; the player code is the one from OpenCP. A basic sample recorder
 and editor is also included.
 
-%description -l pl
-SoundTracker jest edytorem plików muzycznych podobnym do znanego spod
-DOS programu FastTracker. Sample s± rozmieszczane na ¶cie¿kach i
-szablonach, które s± uk³adane w utwory. Edytor obs³uguje formaty XM i
-MOD. Kod odtwarzacza pochodzi z OpenCP. Za³±czony jest prosty edytor
+%description -l pl.UTF-8
+SoundTracker jest edytorem plikÃ³w muzycznych podobnym do znanego spod
+DOS programu FastTracker. Sample sÄ… rozmieszczane na Å›cieÅ¼kach i
+szablonach, ktÃ³re sÄ… ukÅ‚adane w utwory. Edytor obsÅ‚uguje formaty XM i
+MOD. Kod odtwarzacza pochodzi z OpenCP. ZaÅ‚Ä…czony jest prosty edytor
 i program do nagrywania sampli.
 
 %prep
