@@ -12,7 +12,7 @@
 %undefine	with_jack
 %endif
 Summary:	Soundtracker - music editor for xm/mod formats
-Summary(pl.UTF-8):   Soundtracker - program do komponowania muzyki w formatach xm/mod
+Summary(pl.UTF-8):	Soundtracker - program do komponowania muzyki w formatach xm/mod
 Name:		soundtracker
 Version:	0.6.8
 Release:	1
