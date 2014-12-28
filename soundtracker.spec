@@ -32,7 +32,7 @@ BuildRequires:	autoconf
 BuildRequires:	automake
 %{?with_esd:BuildRequires:	esound-devel >= 0.2.8}
 BuildRequires:	gdk-pixbuf-devel >= 0.8.0
-BuildRequires:	gettext-devel
+BuildRequires:	gettext-tools
 %{?with_gnome:BuildRequires:	gnome-libs-devel}
 BuildRequires:	gtk+-devel >= 1.2.2
 %{?with_jack:BuildRequires:	jack-audio-connection-kit-devel}
